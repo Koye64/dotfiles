@@ -23,7 +23,18 @@ include colors
     scale 1
     max_render_time off
   }
+{{ if eq .chezmoi.hostname "headroom" }}
+  output HDMI-A-2 {
+    mode 1920x1080@143.088Hz
+    allow_tearing yes
+    pos 0 0
+  }
 
+  output HDMI-A-1 {
+    mode 1440x900@75.025Hz
+    pos 1920 180
+  }
+{{ end }}
 ### Idle configuration
 
   exec swayidle -w \
