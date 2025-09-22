@@ -1,0 +1,6 @@
+# Environment variables
+export $(envsubst < $ZDOTDIR/env.conf)
+
+eval "$(batman --export-env)"
+eval "$(dircolors)"
+

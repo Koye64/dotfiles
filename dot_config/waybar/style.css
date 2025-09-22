@@ -1,0 +1,229 @@
+/* Catppuccin Mocha */
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @crust;
+    color: @text;
+}
+/* window#waybar.empty { */
+/*     background-color: transparent; */
+/* } */
+
+#workspaces {
+    border-radius: 0.5rem;
+    margin: 0px 4px;
+    background-color: @base;
+    box-shadow: inset 0px 0px 0px 1px @surface0;
+}
+
+#workspaces button {
+    padding: 0px;
+    margin: 2px;
+    border-width: 0px;
+    border-radius: 0.5em;
+    background-color: transparent;
+    color: @subtext0;
+}
+
+/* GTK can huff my musk */
+#workspaces button:hover {
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    background-image: none;
+}
+
+#workspaces button.focused {
+    color: @blue;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#pulseaudio,
+#clock,
+#window,
+#tray,
+#mode,
+#idle_inhibitor,
+#taskbar,
+#scratchpad {
+    padding: 8px 4px;
+    margin: 4px;
+    color: @text;
+    background-color: @base;
+    border: 1px solid @surface0;
+    border-radius: 0.5em;
+}
+
+#taskbar {
+    padding-bottom: 0px;
+}
+#taskbar button {
+    padding: 0px;
+    margin: 2px;
+}
+#taskbar button:hover {
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    background-image: none;
+}
+
+#waybar.empty #window {
+    background: none;
+    border: none;
+}
+
+#pulseaudio {
+    margin-bottom: 0px;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    border-radius: 0.5em 0.5em 0em 0em;
+    border-bottom: none;
+}
+#clock {
+    margin-top: 0px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    border-radius: 0em 0em 0.5em 0.5em;
+    border-top: none;
+}
+
+#battery,
+#backlight,
+#bluetooth,
+#power-profiles-daemon {
+    padding: 4px 4px;
+    margin: 0px 4px;
+    color: @text;
+    background-color: @base;
+    border-left: 1px solid @surface0;
+    border-right: 1px solid @surface0;
+}
+
+#mode {
+    padding: 4px;
+    color: @red;
+    font-weight: bolder;
+}
+
+#window,
+#workspaces {
+    margin: 4px;
+}
+
+#clock {
+    color: @yellow;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.charging, #battery.plugged {
+    color: @green;
+}
+
+@keyframes blink {
+    to {
+        color: @red;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    color: @mauve;
+}
+
+label:focus {
+    border-color: @text;
+}
+
+#backlight {
+    color: @peach;
+}
+
+#bluetooth {
+    color: @blue;
+}
+#bluetooth.disabled,
+#bluetooth.off {
+    color: @overlay0;
+}
+
+#pulseaudio {
+    color: @red;
+}
+
+#tray {
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#idle_inhibitor {
+    padding: 4px;
+    color: @red;
+}
+
+#idle_inhibitor.activated {
+    color: @blue;
+}
+
+#scratchpad {
+    padding: 4px;
+    color: @mauve;
+    font-weight: bold;
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+

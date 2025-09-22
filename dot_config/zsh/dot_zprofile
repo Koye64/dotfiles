@@ -1,0 +1,7 @@
+# Export environment variables from ~/.config/environment.d/
+#
+# These do not get sourced in login shells or when not inherited by a systemd 
+# process.
+#
+source <(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+
