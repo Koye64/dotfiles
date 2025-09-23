@@ -13,5 +13,5 @@ ExecStart=swayidle -w \
 Restart=always
 
 [Install]
-WantedBy=wayland-session@sway.desktop.target
+WantedBy=graphical-session.target
 

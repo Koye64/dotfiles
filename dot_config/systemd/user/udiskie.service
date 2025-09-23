@@ -9,5 +9,5 @@ ExecStart=udiskie
 Restart=always
 
 [Install]
-WantedBy=wayland-session@sway.desktop.target
+WantedBy=graphical-session.target
 
