@@ -1,0 +1,17 @@
+[Unit]
+Description=Swayidle Daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=swayidle -w \
+  timeout 300 'swaylock -f' \
+  timeout 600 'swaymsg "output * power off"' \
+  resume 'swaymsg "output * power on"' \
+  before-sleep 'swaylock -f'
+Restart=always
+
+[Install]
+WantedBy=wayland-session@sway.desktop.target
+
