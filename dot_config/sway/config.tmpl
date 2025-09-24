@@ -91,6 +91,8 @@ include colors
 
   # Close focused window
   bindsym $mod+c kill
+  # Force kill focused window
+  bindsym $mod+x kill -9 $(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true) | .pid')
 
   # Start your launcher
   bindsym $mod+r exec $menu
