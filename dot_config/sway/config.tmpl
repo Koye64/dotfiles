@@ -35,6 +35,8 @@ include colors
     pos 1920 180
   }
 {{ end }}
+  exec_always xrandr --output $(xrandr | grep -m 1 +0+0 | awk '{print $1;}') --primary
+
 ### Input configuration
 
   input type:keyboard {
