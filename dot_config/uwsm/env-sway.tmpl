@@ -1,3 +1,5 @@
+{{- if eq .chezmoi.hostname "headroom" -}}
 export WLR_DRM_NO_ATOMIC=1
 export WLR_SCENE_DISABLE_DIRECT_SCANOUT=1
+{{- end }}
 

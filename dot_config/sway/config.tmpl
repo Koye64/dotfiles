@@ -35,11 +35,6 @@ include colors
     pos 1920 180
   }
 {{ end }}
-{{ if eq .chezmoi.hostname "puppy" }}
-  output eDP-1 {
-    allow_tearing yes
-  }
-{{ end }}
   exec_always xrandr --output $(xrandr | grep -m 1 +0+0 | awk '{print $1;}') --primary
 
 ### Input configuration
