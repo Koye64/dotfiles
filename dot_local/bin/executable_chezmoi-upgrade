@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd "$(chezmoi source-path)" || exit
+git pull
+git submodule update --remote --merge
+chezmoi apply
