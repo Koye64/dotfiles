@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# UWSM terminates programs gracefully with SIGTERM. Discord takes forever to
+# close, for some reason, making logout unnecessarily long. This script simply
+# kills Discord with SIGKILL before gracefully closing everything else.
+
+discord_unit=$(systemctl --user list-units 'app-*-discord-*' | awk 'NR==2 {print $1}')
+
+if [ -n "$discord_unit" ]; then
+  systemctl --user kill -s SIGKILL "$discord_unit"
+fi
+
+uwsm stop
