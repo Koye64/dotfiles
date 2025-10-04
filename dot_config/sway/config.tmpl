@@ -1,3 +1,5 @@
+# vim: ft=swayconfig
+
 include colors
 
 ### Variables
@@ -106,7 +108,7 @@ include colors
   bindsym $mod+Shift+c exec systemctl --user reload waybar && swaymsg reload
 
   # Exit sway (logs you out of your Wayland session)
-  bindsym $mod+q exec uwsm stop
+  bindsym $mod+q exec rofi -show power-menu -modi power-menu:rofi-power-menu
 
   # Move focus
   bindsym $mod+$left focus left
