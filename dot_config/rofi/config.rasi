@@ -4,6 +4,8 @@
 @import "catppuccin-mocha"
 
 * {
+  terminal: "footclient";
+  font: "JetBrainsMono Nerd Font 12";
   selected-active-foreground:  @background;
   lightfg:                     @text;
   separatorcolor:              @foreground;
@@ -89,7 +91,7 @@ element-icon {
 window {
     padding:          5;
     background-color: @background;
-    border:           1;
+    border:           2;
 }
 mainbox {
     padding: 0;
