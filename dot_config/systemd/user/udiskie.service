@@ -3,6 +3,7 @@ Description=Udiskie Daemon
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
+ConditionEnvironment=XDG_SESSION_DESKTOP=sway
 
 [Service]
 ExecStart=udiskie
