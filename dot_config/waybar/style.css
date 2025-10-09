@@ -31,11 +31,11 @@
   font-size: 14px;
 }
 
-window#waybar {
+window#waybar.solo {
   background-color: @crust;
   color: @text;
 }
-window#waybar.empty {
+window#waybar {
   background-color: transparent;
 }
 
