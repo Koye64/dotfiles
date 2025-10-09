@@ -1,117 +1,111 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
-    // "height": 40,
-    "width": 40,
-    "position": "left", // Waybar position (top|bottom|left|right)
-    "modules-left": [
-        "sway/mode",
-        "sway/workspaces",
-        "sway/scratchpad",
-        // "wlr/taskbar"
-        "sway/window"
-    ],
-    "modules-center": [
-	"mpd"
-    ],
-    "modules-right": [
-        "tray",
-        "pulseaudio",
-        "bluetooth",
-        "backlight",
-        "power-profiles-daemon",
-        "battery",
-        "clock",
-        "idle_inhibitor"
-    ],
-    "sway/mode": {
-	// "rotate": 90,
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-	// "rotate": 270,
-	//        "format": "{icon} {count}",
-        "format": "{count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "sway/window": {
-	"rotate": 90,
-        "all-outputs": true
-    },
-    "wlr/taskbar": {
-        "format": "{icon}",
-	"icon-size": 16,
-	"on-click": "activate"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "󰈈 ",
-            "deactivated": " "
-        }
-    },
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10
-    },
-    "clock": {
-	// "rotate": 270,
-	"format": "{:%I\n%M\n%p}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%m\n%d\n%y}"
-    },
-    "backlight": {
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "battery": {
-	// "rotate": 270,
-        "states": {
-            "topped": 100,
-            "regular": 99,
-            "warning": 30,
-            "critical": 15
-        },
-        "justify": "center",
-        "format": "{icon}\n{capacity}",
-        "format-topped": "{icon}",
-        "format-plugged": "\n{capacity}",
-        "format-alt": "{icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
-    },
-    "pulseaudio": {
-	// "rotate": 270,
-        "format": "{icon}\n{volume}",
-        "justify": "center",
-        "format-bluetooth": "\n{volume}",
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "bluetooth": {
-        "format": "",
-        "format-disabled": "󰂲",
-        "format-off": "󰂯",
-        "format-on": "󰂱",
-        "format-connected": "󰂰",
-        "format-no-controller": "",
-        "tooltip-format-enumerate-connected": "{device_enumerate}",
-        "on-click": "blueman-manager",
+  "layer": "top", // Waybar at top layer
+  // "height": 40,
+  "width": 40,
+  "position": "left", // Waybar position (top|bottom|left|right)
+  "modules-left": [
+    "sway/mode",
+    "sway/workspaces",
+    "hyprland/workspaces",
+    "sway/scratchpad",
+    "sway/window",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "mpd"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "bluetooth",
+    "backlight",
+    "power-profiles-daemon",
+    "battery",
+    "clock",
+    "idle_inhibitor"
+  ],
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "sway/scratchpad": {
+    "format": "{count}",
+    "show-empty": false,
+    "format-icons": ["", ""],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+  "sway/window": {
+    "rotate": 90,
+    "all-outputs": true
+  },
+  "hyprland/window": {
+    "rotate": 90,
+    "separate-outputs": true
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰈈 ",
+      "deactivated": " "
     }
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%I\n%M\n%p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%m\n%d\n%y}"
+  },
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "battery": {
+    "states": {
+      "topped": 100,
+      "regular": 99,
+      "warning": 30,
+      "critical": 15
+    },
+    "justify": "center",
+    "format": "{icon}\n{capacity}",
+    "format-topped": "{icon}",
+    "format-plugged": "\n{capacity}",
+    "format-alt": "{icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon}\n{volume}",
+    "justify": "center",
+    "format-bluetooth": "\n{volume}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-off": "󰂯",
+    "format-on": "󰂱",
+    "format-connected": "󰂰",
+    "format-no-controller": "",
+    "tooltip-format-enumerate-connected": "{device_enumerate}",
+    "on-click": "blueman-manager",
+  }
 }
