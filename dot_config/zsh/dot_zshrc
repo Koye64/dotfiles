@@ -1,7 +1,4 @@
-# Graphical login
-if uwsm check may-start; then
-  exec uwsm start sway.desktop
-fi
+# vim: ft=zsh
 
 # Configure history
 [ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
