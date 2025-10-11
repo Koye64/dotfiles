@@ -1,0 +1,31 @@
+max-history=5
+sort=-time
+
+on-button-left=invoke-default-action
+on-button-middle=dismiss-group
+on-button-right=dismiss
+on-touch=invoke-default-action
+
+font=JetBrainsMono Nerd Font
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+border-radius=10
+
+group-by=app-name,urgency
+layer=overlay
+
+[urgency=normal]
+on-notify=exec mpv ~/.local/share/sounds/notification/collide.wav
+default-timeout=10000
+
+[urgency=high]
+border-color=#fab387
+default-timeout=0
+on-notify=exec mpv ~/.local/share/sounds/notification/collide.wav
+
+[urgency=low]
+border-color=#a6e3a1
+default-timeout=5000
+
