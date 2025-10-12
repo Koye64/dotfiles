@@ -52,13 +52,7 @@ general {
 decoration {
   rounding = 8
   rounding_power = 2
-  active_opacity = 1
-  inactive_opacity = 1
-  fullscreen_opacity = 1
-  dim_inactive = false
-  dim_strength = 0
-  dim_special = 0.2
-  dim_around = 0.2
+  dim_special = 0.5
   border_part_of_window = true
 
   blur {
@@ -116,12 +110,12 @@ animations {
 
 dwindle {
   pseudotile = false
-  force_split = 0
+  force_split = 2
   preserve_split = false
   smart_split = false
   smart_resizing = true
   permanent_direction_override = false
-  special_scale_factor = 1
+  special_scale_factor = 0.85
   split_width_multiplier = 1
   use_active_for_splits = true
   default_split_ratio = 1
@@ -262,7 +256,12 @@ workspace = 8, monitor:HDMI-A-1
 workspace = 7, monitor:HDMI-A-1
 {{- end }}
 
-gesture = 3, horizontal, workspace
+gesture = 3, vertical, workspace
+
+gestures {
+  workspace_swipe_min_speed_to_force = 5
+  workspace_swipe_cancel_ratio = 0.125
+}
 
 bind = $mod, RETURN, exec, $terminal
 bind = $mod, R, exec, $menu
@@ -338,15 +337,12 @@ bindl = , XF86AudioPause, exec, playerctl play-pause
 bindl = , XF86AudioPlay, exec, playerctl play-pause
 bindl = , XF86AudioPrev, exec, playerctl previous
 
-windowrule = bordersize 0, floating:0, onworkspace:w[tv1]
-windowrule = rounding 0, floating:0, onworkspace:w[tv1]
-windowrule = bordersize 0, floating:0, onworkspace:f[1]
-windowrule = rounding 0, floating:0, onworkspace:f[1]
-
-workspace = w[tv1], gapsout:0, gapsin:0
-workspace = f[1], gapsout:0, gapsin:0
-
-windowrule = float, onworkspace:special:scratch
+workspace = w[tv1]s[false], gapsout:0, gapsin:0
+workspace = f[1]s[false], gapsout:0, gapsin:0
+windowrule = bordersize 0, floating:0, onworkspace:w[tv1]s[false]
+windowrule = rounding 0, floating:0, onworkspace:w[tv1]s[false]
+windowrule = bordersize 0, floating:0, onworkspace:f[1]s[false]
+windowrule = rounding 0, floating:0, onworkspace:f[1]s[false]
 
 windowrule = suppressevent maximize, class:.*
 windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
