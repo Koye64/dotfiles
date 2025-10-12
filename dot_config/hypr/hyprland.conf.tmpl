@@ -80,7 +80,6 @@ decoration {
     ignore_window = true
     color = $crust
     color_inactive = $crust
-    offset = 0 0
     scale = 1
   }
 }
@@ -105,6 +104,7 @@ animations {
   animation = fadeLayersIn, 1, 2.5, quart
   animation = fadeLayersOut, 0
   animation = workspaces, 1, 3, expo, slidevert
+  animation = specialWorkspace, 1, 3, expo, fade
   animation = zoomFactor, 1, 3, quart
 }
 
@@ -337,6 +337,7 @@ bindl = , XF86AudioPause, exec, playerctl play-pause
 bindl = , XF86AudioPlay, exec, playerctl play-pause
 bindl = , XF86AudioPrev, exec, playerctl previous
 
+workspace = special:scratch, on-created-empty: $terminal
 workspace = w[tv1]s[false], gapsout:0, gapsin:0
 workspace = f[1]s[false], gapsout:0, gapsin:0
 windowrule = bordersize 0, floating:0, onworkspace:w[tv1]s[false]
