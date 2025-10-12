@@ -38,7 +38,7 @@ general {
   allow_tearing = true
   border_size = 2
   no_border_on_floating = false
-  gaps_in = 2
+  gaps_in = 4
   gaps_out = 8
   gaps_workspaces = 48
 
@@ -73,7 +73,7 @@ decoration {
   }
 
   shadow {
-    enabled = true
+    enabled = false
     range = 1
     render_power = 4
     sharp = true
@@ -245,12 +245,12 @@ device {
   accel_profile = adaptive
 }
 {{ if eq .chezmoi.hostname "headroom" }}
-workspace = 1, monitor:HDMI-A-2
+workspace = 1, monitor:HDMI-A-2, default:true
 workspace = 2, monitor:HDMI-A-2
 workspace = 3, monitor:HDMI-A-2
 workspace = 4, monitor:HDMI-A-2
 
-workspace = 10, monitor:HDMI-A-1
+workspace = 10, monitor:HDMI-A-1, default:true
 workspace = 9, monitor:HDMI-A-1
 workspace = 8, monitor:HDMI-A-1
 workspace = 7, monitor:HDMI-A-1
@@ -269,6 +269,7 @@ bind = $mod, C, killactive,
 bind = $mod, Q, exec, rofi -show power-menu -modi power-menu:rofi-power-menu
 bind = $mod, V, togglefloating,
 bind = $mod, F, fullscreen,
+bind = $mod, P, pin,
 
 bind = $mod SHIFT, S, exec, grim -g "$(slurp -d)" - | swappy -f -
 
@@ -340,6 +341,7 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 workspace = special:scratch, on-created-empty: $terminal
 workspace = w[tv1]s[false], gapsout:0, gapsin:0
 workspace = f[1]s[false], gapsout:0, gapsin:0
+workspace = f[0], decorate:no
 windowrule = bordersize 0, floating:0, onworkspace:w[tv1]s[false]
 windowrule = rounding 0, floating:0, onworkspace:w[tv1]s[false]
 windowrule = bordersize 0, floating:0, onworkspace:f[1]s[false]
@@ -350,4 +352,8 @@ windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned
 
 windowrule = immediate, class:.*
 windowrule = rounding 0, class:steam
+windowrule = pin, title:Picture-in-Picture
+windowrule = float, title:Picture-in-Picture
+windowrule = norounding, title:Picture-in-Picture
+windowrule = noborder, title:Picture-in-Picture
 
