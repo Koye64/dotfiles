@@ -12,8 +12,10 @@ text-color=#cdd6f4
 border-color=#89b4fa
 progress-color=over #313244
 
-border-radius=10
-icon-border-radius=5
+outer-margin=10
+margin=4
+border-radius=4
+icon-border-radius=2
 
 group-by=app-name,urgency
 layer=overlay
