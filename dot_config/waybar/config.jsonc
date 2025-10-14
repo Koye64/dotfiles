@@ -1,9 +1,9 @@
 // -*- mode: jsonc -*-
 {
   "layer": "top", // Waybar at top layer
-  // "height": 40,
-  "width": 40,
-  "position": "left", // Waybar position (top|bottom|left|right)
+  "height": 40,
+  // "width": 40,
+  "position": "top", // Waybar position (top|bottom|left|right)
   "modules-left": [
     "sway/mode",
     "hyprland/workspaces",
@@ -38,15 +38,12 @@
     "tooltip-format": "{app}: {title}"
   },
   "sway/window": {
-    "rotate": 90,
     "all-outputs": true
   },
   "hyprland/window": {
-    "rotate": 90,
     "separate-outputs": true
   },
   "niri/window": {
-    "rotate": 90,
     "separate-outputs": true
   },
   "idle_inhibitor": {
@@ -61,9 +58,9 @@
     "spacing": 10
   },
   "clock": {
-    "format": "{:%I\n%M\n%p}",
+    "format": "{:%I:%M %p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%m\n%d\n%y}"
+    "format-alt": "{:%m/%d/%y}"
   },
   "backlight": {
     "format": "{icon}",
@@ -77,9 +74,9 @@
       "critical": 15
     },
     "justify": "center",
-    "format": "{icon}\n{capacity}",
+    "format": "{icon} {capacity}",
     "format-topped": "{icon}",
-    "format-plugged": "\n{capacity}",
+    "format-plugged": " {capacity}",
     "format-alt": "{icon}",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
@@ -95,9 +92,9 @@
     }
   },
   "pulseaudio": {
-    "format": "{icon}\n{volume}",
+    "format": "{icon} {volume}",
     "justify": "center",
-    "format-bluetooth": "\n{volume}",
+    "format-bluetooth": " {volume}",
     "format-muted": "",
     "format-icons": {
       "default": ["", "", ""]

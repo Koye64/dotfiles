@@ -82,7 +82,7 @@ window#waybar {
 #idle_inhibitor,
 #taskbar,
 #scratchpad {
-  padding: 8px 4px;
+  padding: 4px 8px;
   margin: 4px;
   color: @text;
   background-color: @base;
@@ -91,7 +91,7 @@ window#waybar {
 }
 
 #taskbar {
-  padding-bottom: 0px;
+  padding-right: 0px;
 }
 #taskbar button {
   padding: 0px;
@@ -110,30 +110,30 @@ window#waybar {
 }
 
 #pulseaudio {
-  margin-bottom: 0px;
-  padding-top: 4px;
-  padding-bottom: 2px;
-  border-radius: 0.5em 0.5em 0em 0em;
-  border-bottom: none;
+  margin-right: 0px;
+  padding-left: 4px;
+  padding-right: 2px;
+  border-radius: 0.5em 0em 0em 0.5em;
+  border-right: none;
 }
 #clock {
-  margin-top: 0px;
-  padding-top: 2px;
-  padding-bottom: 4px;
-  border-radius: 0em 0em 0.5em 0.5em;
-  border-top: none;
+  margin-left: 0px;
+  padding-left: 2px;
+  padding-right: 4px;
+  border-radius: 0em 0.5em 0.5em 0em;
+  border-left: none;
 }
 
 #battery,
 #backlight,
 #bluetooth,
 #power-profiles-daemon {
-  padding: 4px 4px;
-  margin: 0px 4px;
+  padding: 4px 8px;
+  margin: 4px 0px;
   color: @text;
   background-color: @base;
-  border-left: 1px solid @surface0;
-  border-right: 1px solid @surface0;
+  border-top: 1px solid @surface0;
+  border-bottom: 1px solid @surface0;
 }
 
 #mode {
@@ -177,6 +177,7 @@ to {
 
 #power-profiles-daemon {
   color: @mauve;
+  padding-right: 12px;
 }
 
 label:focus {
@@ -212,6 +213,8 @@ label:focus {
 
 #idle_inhibitor {
   padding: 4px;
+  padding-left: 8px;
+  padding-right: 6px;
   color: @red;
 }
 
