@@ -95,9 +95,9 @@
     "format": "{icon} {volume}",
     "justify": "center",
     "format-bluetooth": " {volume}",
-    "format-muted": "",
+    "format-muted": " ",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": ["", "", " "]
     },
     "on-click": "pavucontrol"
   },
