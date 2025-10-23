@@ -1,0 +1,340 @@
+input {
+  keyboard {
+    xkb {}
+    numlock // Enable numlock on startup
+  }
+
+  touchpad {
+    // off
+    tap
+    // dwt // disable-when-typing
+    // dwtp // disable-when-trackpointing
+    drag true
+    drag-lock
+    natural-scroll
+    accel-speed 0
+    accel-profile "adaptive"
+  }
+
+  mouse {
+    // off
+    accel-speed 0
+    accel-profile "flat"
+  }
+
+  tablet {
+    map-to-output "ASUSTek COMPUTER INC VG248 S1LMQS073379"
+  }
+
+  // warp-mouse-to-focus
+  focus-follows-mouse max-scroll-amount="25%"
+}
+
+output "ASUSTek COMPUTER INC VG248 S1LMQS073379" {
+  mode "1920x1080@143.999"
+  scale 1
+  position x=0 y=0
+}
+
+output "Acer Technologies Acer AL1916W L86080584231" {
+  mode "1440x900@74.984"
+  position x=1920 y=180
+}
+
+layout {
+  gaps 8
+  center-focused-column "never"
+
+  preset-column-widths {
+    proportion 0.35
+    proportion 0.5
+    proportion 0.65
+  }
+
+  // preset-window-heights { }
+
+  default-column-width { proportion 0.5; }
+  // default-column-width {}
+
+  focus-ring {
+    // off
+    width 2
+    active-color "#11111b"
+    inactive-color "#0000"
+  }
+
+  border {
+    // off
+    width 2
+    inactive-color "#1e1e2e"
+    urgent-color "#f38ba8"
+    active-gradient from="#cba6f7" to="#89b4fa" angle=45
+  }
+
+  shadow {
+    // on
+    // draw-behind-window true
+    softness 30
+    spread 5
+    offset x=0 y=0
+    color "#0007"
+  }
+
+  struts {
+    // left 64
+    // right 64
+    top -4
+    // bottom 64
+  }
+}
+
+// spawn-at-startup "waybar"
+
+hotkey-overlay {
+  // skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/pictures/screenshots/niri/%Y-%m-%d %H-%M-%S.png"
+// screenshot-path null
+
+animations {
+  // off
+  // slowdown 3.0
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+  // This app-id regular expression will work for both:
+  // - host Firefox (app-id is "firefox")
+  // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+  block-out-from "screen-capture"
+
+  // Use this instead if you want them visible on third-party screenshot tools.
+  // block-out-from "screencast"
+}
+
+window-rule {
+  geometry-corner-radius 8
+  clip-to-geometry true
+}
+
+binds {
+  // Most actions that you can bind here can also be invoked with
+  // `niri msg action do-something`.
+
+  Mod+Shift+Slash { show-hotkey-overlay; }
+  Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty" "-1"; }
+  Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+  XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+  Mod+O repeat=false { toggle-overview; }
+
+  Mod+Q repeat=false { close-window; }
+
+  Mod+Left  { focus-column-left; }
+  Mod+Down  { focus-window-down; }
+  Mod+Up    { focus-window-up; }
+  Mod+Right { focus-column-right; }
+  Mod+H     { focus-column-left; }
+  Mod+J     { focus-window-down; }
+  Mod+K     { focus-window-up; }
+  Mod+L     { focus-column-right; }
+
+  Mod+Ctrl+Left  { move-column-left; }
+  Mod+Ctrl+Down  { move-window-down; }
+  Mod+Ctrl+Up    { move-window-up; }
+  Mod+Ctrl+Right { move-column-right; }
+  Mod+Ctrl+H     { move-column-left; }
+  // Mod+Ctrl+J     { move-window-down; }
+  // Mod+Ctrl+K     { move-window-up; }
+  Mod+Ctrl+L     { move-column-right; }
+
+  // Alternative commands that move across workspaces
+  // Mod+J     { focus-window-or-workspace-down; }
+  // Mod+K     { focus-window-or-workspace-up; }
+  Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
+  Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
+
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+Shift+Left  { focus-monitor-left; }
+  Mod+Shift+Down  { focus-monitor-down; }
+  Mod+Shift+Up    { focus-monitor-up; }
+  Mod+Shift+Right { focus-monitor-right; }
+  Mod+Shift+H     { focus-monitor-left; }
+  Mod+Shift+J     { focus-monitor-down; }
+  Mod+Shift+K     { focus-monitor-up; }
+  Mod+Shift+L     { focus-monitor-right; }
+
+  Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+  Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+  // Alternatively, there are commands to move just a single window:
+  // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+  // ...
+
+  // And you can also move a whole workspace to another monitor:
+  // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+  // ...
+
+  Mod+Page_Down      { focus-workspace-down; }
+  Mod+Page_Up        { focus-workspace-up; }
+  Mod+N              { focus-workspace-down; }
+  Mod+P              { focus-workspace-up; }
+  Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+  Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+  Mod+Ctrl+N         { move-column-to-workspace-down; }
+  Mod+Ctrl+P         { move-column-to-workspace-up; }
+
+  // Alternatively, there are commands to move just a single window:
+  // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
+  // ...
+
+  Mod+Shift+Page_Down { move-workspace-down; }
+  Mod+Shift+Page_Up   { move-workspace-up; }
+  Mod+Shift+N         { move-workspace-down; }
+  Mod+Shift+P         { move-workspace-up; }
+
+  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+  Mod+WheelScrollRight      { focus-column-right; }
+  Mod+WheelScrollLeft       { focus-column-left; }
+  Mod+Ctrl+WheelScrollRight { move-column-right; }
+  Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+  Mod+Shift+WheelScrollDown      { focus-column-right; }
+  Mod+Shift+WheelScrollUp        { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+  Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+  Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+  Mod+0 { focus-workspace 10; }
+  Mod+Ctrl+1 { move-column-to-workspace 1; }
+  Mod+Ctrl+2 { move-column-to-workspace 2; }
+  Mod+Ctrl+3 { move-column-to-workspace 3; }
+  Mod+Ctrl+4 { move-column-to-workspace 4; }
+  Mod+Ctrl+5 { move-column-to-workspace 5; }
+  Mod+Ctrl+6 { move-column-to-workspace 6; }
+  Mod+Ctrl+7 { move-column-to-workspace 7; }
+  Mod+Ctrl+8 { move-column-to-workspace 8; }
+  Mod+Ctrl+9 { move-column-to-workspace 9; }
+  Mod+Ctrl+0 { move-column-to-workspace 10; }
+
+  // Alternatively, there are commands to move just a single window:
+  // Mod+Ctrl+1 { move-window-to-workspace 1; }
+
+  // Switches focus between the current and the previous workspace.
+  Mod+Tab { focus-workspace-previous; }
+
+  // The following binds move the focused window in or out of a column.
+  Mod+BracketLeft  { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+
+  // Consume one window from the right to the bottom of the focused column.
+  // Mod+Comma  { consume-window-into-column; }
+  // Expel the bottom window from the focused column to the right.
+  // Mod+Period { expel-window-from-column; }
+
+  Mod+R { switch-preset-column-width; }
+  Mod+Shift+R { switch-preset-window-height; }
+  Mod+Ctrl+R { reset-window-height; }
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+
+  // Expand the focused column to space not taken up by other fully visible 
+  // columns.
+  // Makes the column "fill the rest of the space".
+  Mod+Ctrl+F { expand-column-to-available-width; }
+
+  Mod+C { center-column; }
+
+  // Center all fully visible columns on screen.
+  Mod+Ctrl+C { center-visible-columns; }
+
+  // Finer width adjustments.
+  // This command can also:
+  // * set width in pixels: "1000"
+  // * adjust width in pixels: "-5" or "+5"
+  // * set width as a percentage of screen width: "25%"
+  // * adjust width as a percentage of screen width: "-10%" or "+10%"
+  // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 
+  // 2.0,
+  // set-column-width "100" will make the column occupy 200 physical screen 
+  // pixels.
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+
+  // Finer height adjustments when in column with other windows.
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  // Move the focused window between the floating and the tiling layout.
+  Mod+V       { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+  // Toggle tabbed column display mode.
+  // Windows in this column will appear as vertical tabs,
+  // rather than stacked on top of each other.
+  Mod+W { toggle-column-tabbed-display; }
+
+  Mod+Shift+S { screenshot; }
+  Mod+Shift+A { screenshot-screen; }
+  Mod+Shift+W { screenshot-window; }
+
+  // Applications such as remote-desktop clients and software KVM switches may 
+  // request that niri stops processing the keyboard shortcuts defined here so 
+  // they may, for example, forward the key presses as-is to a remote machine. 
+  // It's a good idea to bind an escape hatch to toggle the inhibitor, so a 
+  // buggy application can't hold your session hostage.
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  // The quit action will show a confirmation dialog to avoid accidental exits.
+  Mod+E { spawn "rofi" "-show" "power-menu" "-modi" "power-menu:rofi-power-menu"; }
+  Ctrl+Alt+Delete { spawn-sh "loginctl terminate-session ${XDG_SESSION_ID}"; }
+
+  // Powers off the monitors. To turn them back on, do any input like moving 
+  // the mouse or pressing any other key.
+  // Mod+Shift+P { power-off-monitors; }
+}
