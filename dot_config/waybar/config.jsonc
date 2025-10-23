@@ -7,11 +7,11 @@
   "modules-left": [
     "sway/mode",
     "hyprland/workspaces",
-    // "niri/workspaces",
+    "niri/workspaces",
     "sway/workspaces",
     "sway/scratchpad",
     "hyprland/window",
-    // "niri/window",
+    "niri/window",
     "sway/window"
   ],
   "modules-center": [

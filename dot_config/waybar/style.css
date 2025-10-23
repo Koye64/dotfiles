@@ -31,10 +31,10 @@
   font-size: 14px;
 }
 
-window#waybar.solo {
-  background-color: @crust;
-  color: @text;
-}
+/* window#waybar.solo { */
+/*   background-color: @crust; */
+/*   color: @text; */
+/* } */
 window#waybar {
   background-color: transparent;
 }
