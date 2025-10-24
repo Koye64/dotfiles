@@ -88,6 +88,15 @@ layout {
     top -4
     // bottom 64
   }
+
+  tab-indicator {
+    gap 2
+    active-color "#cba6f7"
+    inactive-color "#45475a"
+    corner-radius 8
+    position "top"
+    // place-within-column
+  }
 }
 
 // spawn-at-startup "waybar"
