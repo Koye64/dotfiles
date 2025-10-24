@@ -60,7 +60,7 @@ layout {
     // off
     width 2
     // active-color "#585b70"
-    active-gradient from="#cba6f7" to="#89b4fa" angle=45
+    active-gradient from="#cba6f7" to="#89b4fa" angle=0
     inactive-color "#585b70"
   }
 
@@ -90,7 +90,7 @@ layout {
   }
 
   tab-indicator {
-    gap 2
+    gap 4
     active-color "#cba6f7"
     inactive-color "#45475a"
     corner-radius 8
