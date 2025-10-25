@@ -1,11 +1,11 @@
 [Unit]
-Description=Alacritty daemon
+Description=Kitty daemon
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=alacritty --daemon
+ExecStart=kitty -1 --start-as hidden
 Restart=always
 
 [Install]

@@ -1,12 +1,12 @@
 [Unit]
-Description=Udiskie auto disk mounting daemon
+Description=A wallpaper daemon for Wayland
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=udiskie
-Restart=always
+ExecStart=swaybg -m fill -i "%h/.local/share/backgrounds/arch.png"
+Restart=on-failure
 
 [Install]
 # use `systemctl --user add-wants niri.service <service>` instead if possible

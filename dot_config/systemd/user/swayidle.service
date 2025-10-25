@@ -1,9 +1,8 @@
 [Unit]
-Description=Swayidle Daemon
+Description=An idle & lock screen manager for Wayland
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
-ConditionEnvironment=XDG_SESSION_DESKTOP=sway
 
 [Service]
 ExecStart=swayidle -w \
@@ -16,5 +15,6 @@ ExecStart=swayidle -w \
 Restart=always
 
 [Install]
+# use `systemctl --user add-wants niri.service <service>` instead if possible
 WantedBy=graphical-session.target
 
