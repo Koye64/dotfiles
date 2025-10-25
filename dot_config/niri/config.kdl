@@ -45,6 +45,8 @@ layout {
   gaps 8
   center-focused-column "never"
 
+  background-color "#11111b"
+
   preset-column-widths {
     proportion 0.35
     proportion 0.5
@@ -91,6 +93,7 @@ layout {
 
   tab-indicator {
     gap 4
+    gaps-between-tabs 2
     active-color "#cba6f7"
     inactive-color "#45475a"
     corner-radius 2
@@ -140,6 +143,23 @@ window-rule {
   clip-to-geometry true
 }
 
+// layer-rule {
+//   match namespace="^wallpaper$"
+//   place-within-backdrop true
+// }
+
+overview {
+  backdrop-color "#181825"
+  workspace-shadow {
+    // Green border
+    // softness 0
+    // spread 2
+    // offset x=0 y=0
+    // color "#a6e3a1"
+    color "#11111b"
+  }
+}
+
 binds {
   // Most actions that you can bind here can also be invoked with
   // `niri msg action do-something`.
@@ -147,7 +167,7 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
   Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty" "-1"; }
   Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
-  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "loginctl" "lock-session"; }
 
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
