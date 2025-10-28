@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=cava
+GenericName=Music visualizer
+Comment=Music visualizer
+Exec=/usr/bin/kitty -o placement_strategy=bottom -o font_size=10 -- cava
+# Icon=/home/koye/.local/share/icons/...
+TryExec=/usr/bin/cava
+Type=Application
+
