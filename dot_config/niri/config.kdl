@@ -27,7 +27,7 @@ input {
   }
 
   // warp-mouse-to-focus
-  focus-follows-mouse max-scroll-amount="25%"
+  focus-follows-mouse max-scroll-amount="50%"
 }
 
 output "ASUSTek COMPUTER INC VG248 S1LMQS073379" {
